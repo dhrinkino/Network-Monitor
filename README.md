@@ -10,7 +10,7 @@ Fetch the repository, install all components from requirements.txt via pip
 ```
 pip install requirements.txt 
 ```
-If you want to use a monitor/server-side, you need install a **rrdtool** and python extension You also need a remote WWW server with ping enabled and reachable http server. Create a 10,50,100Mbit files name it 10M.bin, 
+If you want to use a monitor/server-side, you need install a **rrdtool** and python extension You also need a remote WWW server with ping enabled and reachable http server. Create a 10,50,100Mbit files name it 10M.bin, 50M.bin and 100M.bin
 ```
 sudo dd if=/dev/urandom of=10M.bin count=10 bs=1M
 sudo dd if=/dev/urandom of=50M.bin count=50 bs=1M

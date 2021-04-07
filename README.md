@@ -16,7 +16,7 @@ sudo dd if=/dev/urandom of=10M.bin count=10 bs=1M
 sudo dd if=/dev/urandom of=50M.bin count=50 bs=1M
 sudo dd if=/dev/urandom of=100M.bin count=100 bs=1M
 ```
-50M.bin and 100M.bin. Upload it to the root directory of http server. Example: http://127.0.0.1/10M.bin.
+Upload it to the root directory of http server. Example: http://127.0.0.1/10M.bin
 
 ## Usage
 

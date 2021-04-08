@@ -4,6 +4,14 @@ import time
 import rrdtool
 import os.path
 
+# caller classov a metod
+class SondaCall():
+    def __init__(self,s_ip):
+        print(s_ip)
+        self.Latency = LatencyGraph(s_ip)
+        self.Speed = SpeedGraph(s_ip)
+        self.Server = SondaServer(s_ip)
+
 
 # tato trieda je skorej taky main template pre ostatne triedy, zahrna vsetky funkcie ktore su potrebne, dalej si robim vlastnu upravenu funkciu create
 class Graph:

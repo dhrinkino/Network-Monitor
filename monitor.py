@@ -1,6 +1,7 @@
 import time
 import re
-from monitor_class import LatencyGraph, SpeedGraph, SondaServer
+from monitor_class import SondaCall, LatencyGraph, SpeedGraph, SondaServer
+
 
 
 if __name__ == "__main__":
@@ -16,24 +17,20 @@ if __name__ == "__main__":
         sonda_ip = sonda_file.readline()
         while sonda_ip:
             s_ip = sonda_ip.rstrip("\n")
-            
-            server[s_ip] = dict()
-            server[s_ip]["Latency"] = LatencyGraph(s_ip)
-            server[s_ip]["Speed"] = SpeedGraph(s_ip)
-            server[s_ip]["Server"] = SondaServer(s_ip)
+            server[s_ip] = SondaCall(s_ip)
             sonda_ip = sonda_file.readline()
 
 
     while 1:
         for sonda in server:
             print("-> "+sonda+" ")
-            server[sonda]["Latency"].create()
-            server[sonda]["Speed"].create()
-            if server[sonda]["Server"].pull() == True:
-                data = server[sonda]["Server"].getdict()
+            server[sonda].Latency.create()
+            server[sonda].Speed.create()
+            if server[sonda].Server.pull() == True:
+                data = server[sonda].Server.getdict()
                 print(data)
-                server[sonda]["Speed"].update(data['download'])
-                server[sonda]["Latency"].update(data['latency'])
-            server[sonda]["Speed"].generate()
-            server[sonda]["Latency"].generate()
+                server[sonda].Speed.update(data['download'])
+                server[sonda].Latency.update(data['latency'])
+            server[sonda].Latency.generate()
+            server[sonda].Speed.generate()
         time.sleep(60)
